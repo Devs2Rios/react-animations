@@ -12,6 +12,11 @@
     animation: showBackdrop 0.25s ease-in forwards;
 }
 
+.backdrop-opened {
+    opacity: 1;
+    backdrop-filter: blur(4px) opacity(1);
+}
+
 .backdrop-closed {
     animation: closeBackdrop 1s ease-out forwards;
 }

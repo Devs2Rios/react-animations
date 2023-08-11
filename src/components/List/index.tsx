@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
+import CSSTransition from 'react-transition-group/CSSTransition';
 import './List.css';
 
 export default function List() {
@@ -17,14 +19,27 @@ export default function List() {
         <div>
             <button className="button" onClick={addItemHandler}>Add Item</button>
             <p>Click Item to Remove.</p>
-            <ul className="list">
+            <TransitionGroup component='ul' className="list">
                 {items.map((item, index) => (
-                    <li
+                    <CSSTransition
                         key={index}
-                        className="list-item"
-                        onClick={() => removeItemHandler(index)}>{item}</li>
+                        timeout={250}
+                        classNames={{
+                            enter: '',
+                            enterActive: 'list-item-enter',
+                            exit: '',
+                            exitActive: 'list-item-exit'
+                        }}
+                    >
+                        <li
+                            className="list-item"
+                            onClick={() => removeItemHandler(index)}
+                        >
+                            {item}
+                        </li>
+                    </CSSTransition>
                 ))}
-            </ul>
+            </TransitionGroup>
         </div>
     );
 }

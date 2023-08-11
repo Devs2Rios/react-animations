@@ -11,6 +11,7 @@ export default function Backdrop({ status, closed }: BackdropProps) {
     return <div className={clsx({
         'backdrop': true,
         'backdrop-open': status === 'entering',
+        'backdrop-opened': status === 'entered',
         'backdrop-closed': status === 'exiting'
     })} onClick={closed} />;
 }

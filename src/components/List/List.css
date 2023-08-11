@@ -14,9 +14,18 @@
     background-color: white;
     text-align: center;
     cursor: pointer;
+    transition: opacity 0.25s;
 }
 
 .list-item:hover,
 .list-item:active {
     background-color: #ccc;
+}
+
+.list-item-enter {
+    animation: fadeIn 0.25s ease-in;
+}
+
+.list-item-exit {
+    animation: fadeOut 0.25s ease-out;
 }
