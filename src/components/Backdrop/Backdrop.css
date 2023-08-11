@@ -13,7 +13,7 @@
 }
 
 .backdrop-closed {
-    animation: closeBackdrop 0.25s ease-out forwards;
+    animation: closeBackdrop 1s ease-out forwards;
 }
 
 @keyframes showBackdrop {

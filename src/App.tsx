@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Transition, { TransitionStatus } from 'react-transition-group/Transition';
+import CSSTransition from "react-transition-group/CSSTransition";
 import './App.css';
 import Overlay from "./components/Overlay";
 import List from "./components/List";
@@ -20,15 +20,20 @@ export default function App() {
       </div>
       <h3>Animating Lists</h3>
       <List />
-      <Transition in={showCircle} timeout={100} mountOnEnter unmountOnExit>
-        {(state: TransitionStatus) => <div
-          style={{
-            transform: `scale(${state === 'entered' ? 1 : 0})`,
-            transition: 'all 100ms ease-in-out',
-          }}
-          className={`circle`}
-        />}
-      </Transition>
+      <CSSTransition
+        in={showCircle}
+        timeout={250}
+        mountOnEnter
+        unmountOnExit
+        classNames={{
+          enter: '',
+          enterActive: 'circle-open',
+          exit: '',
+          exitActive: 'circle-close'
+        }}
+      >
+        <div className='circle' />
+      </CSSTransition>
     </div>
   );
 }
