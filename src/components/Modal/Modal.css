@@ -13,9 +13,33 @@
 }
 
 .modal-open {
-    display: block;
+    animation: showModal 0.25s ease-in forwards;
 }
 
 .modal-closed {
-    display: none;
+    animation: closeModal 0.25s ease-out forwards;
+}
+
+@keyframes showModal {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes closeModal {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100);
+    }
 }

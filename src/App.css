@@ -1,3 +1,25 @@
 .app {
   text-align: center;
 }
+
+.buttons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.buttons-wrapper button {
+  width: 125px;
+}
+
+.circle {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: calc(50% - 150px);
+  left: calc(50% - 150px);
+  background-color: #00ffd0;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
+}

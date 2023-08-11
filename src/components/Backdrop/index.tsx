@@ -1,15 +1,16 @@
+import { TransitionStatus } from 'react-transition-group/Transition';
 import clsx from 'clsx';
 import './Backdrop.css';
 
 interface BackdropProps {
-    show: boolean;
+    status: TransitionStatus;
     closed: () => void;
 }
 
-export default function Backdrop({ show, closed }: BackdropProps) {
+export default function Backdrop({ status, closed }: BackdropProps) {
     return <div className={clsx({
         'backdrop': true,
-        'backdrop-open': show,
-        'backdrop-closed': !show
+        'backdrop-open': status === 'entering',
+        'backdrop-closed': status === 'exiting'
     })} onClick={closed} />;
 }
